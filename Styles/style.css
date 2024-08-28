@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteiner {
+  max-width: 1280px;
+  width: 100%;
+}
+
+.header__content {
+  width: 880px;
+  border-bottom: 1px solid rgba(84, 84, 84, 1);
+  margin-left: 200px;
+}
+
+.header__logo {
+  width: 173px;
+  margin-bottom: 40px;
+  margin-top: 45px;
+}
