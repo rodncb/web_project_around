@@ -13,6 +13,7 @@ body {
 }
 
 .conteiner {
+  margin: 0;
   max-width: 1280px;
   width: 100%;
 }
@@ -51,4 +52,85 @@ body {
   display: flex;
   align-items: center;
   margin-left: 30px;
+}
+
+.profile__info__edit__button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.profile__info__bio {
+  font-size: 18px;
+  line-height: 21.78px;
+  font-weight: 400;
+  margin-left: 30px;
+}
+
+.add__button {
+  width: 150px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 1);
+  background-color: black;
+  border-radius: 2px;
+}
+
+.add__button__add {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.gallery {
+  display: grid;
+  width: 880px;
+  margin-left: 200px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  border: 1.5px solid rgba(0, 0, 0, 1);
+  border-radius: 16px;
+}
+
+.card {
+  background-color: white;
+  width: 282px;
+  height: 361px;
+  border-radius: 16px;
+  margin-bottom: 21px;
+}
+.card__image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card__content {
+  max-width: 282px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.card__title {
+  max-width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  color: rgba(0, 0, 0, 1);
+  padding-left: 21px;
+}
+.card__icon {
+  width: 21px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.footer {
+  max-width: 318px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  margin-left: 200px;
+  margin-top: 67px;
+  margin-bottom: 60px;
 }
