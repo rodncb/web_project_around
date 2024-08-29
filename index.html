@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./Styles/style.css" />
 
     <title>Around</title>
@@ -23,15 +29,108 @@
           alt="Imagem do Perfil"
         />
         <div class="profile__info">
-          <h1>
+          <h1 class="profile__info__title">
             Jacques Cousteau<img
               src="./images/Edit Button.png"
               class="profile__info__edit__button"
               alt="Imagem de um botão de edição"
             />
           </h1>
+          <p class="profile__info__bio">Explorador</p>
+        </div>
+        <button class="add__button">+</button>
+      </div>
+      <div class="gallery">
+        <div class="card">
+          <img
+            src="./images/FotoCard1.jpg"
+            alt="Vale de Yosemite"
+            class="card__image"
+          />
+          <div class="card__content">
+            <span class="card__title">Vale de Yosemite</span>
+            <img
+              src="./images/heart-icon.png"
+              alt="Favorite"
+              class="card__icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./images/FotoCard2.jpg"
+            alt="Lago Louise"
+            class="card__image"
+          />
+          <div class="card__content">
+            <span class="card__title">Lago Louise</span>
+            <img
+              src="./images/heart-icon.png"
+              alt="Favorite"
+              class="card__icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./images/FotoCard3.jpg"
+            alt="Montanhas Care"
+            class="card__image"
+          />
+          <div class="card__content">
+            <span class="card__title">Montanhas Care...</span>
+            <img
+              src="./images/heart-icon.png"
+              alt="Favorite"
+              class="card__icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/FotoCard4.jpg" alt="Latemar" class="card__image" />
+          <div class="card__content">
+            <span class="card__title">Latemar</span>
+            <img
+              src="./images/heart-icon.png"
+              alt="Favorite"
+              class="card__icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./images/fotoCard5.jpg"
+            alt="Parque Nacional"
+            class="card__image"
+          />
+          <div class="card__content">
+            <span class="card__title">Parque Nacional...</span>
+            <img
+              src="./images/heart-icon.png"
+              alt="Favorite"
+              class="card__icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./images/FotoCard6.jpg"
+            alt="Lago di Braies"
+            class="card__image"
+          />
+          <div class="card__content">
+            <span class="card__title">Lago di Braies</span>
+            <img
+              src="./images/heart-icon.png"
+              alt="Favorite"
+              class="card__icon"
+            />
+          </div>
         </div>
       </div>
+      <footer class="footer">
+        <p>&copy; 2024 Around The U.S.</p>
+      </footer>
     </section>
   </body>
 </html>

@@ -8,6 +8,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Inter", sans-serif;
+  color: white;
 }
 
 .conteiner {
@@ -25,4 +27,28 @@ body {
   width: 173px;
   margin-bottom: 40px;
   margin-top: 45px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin: 40px 200px;
+  width: 880px;
+}
+.profile__photo {
+  width: 120px;
+  height: 120px;
+}
+
+.profile__info {
+  flex-grow: 1;
+}
+
+.profile__info__title {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
 }
