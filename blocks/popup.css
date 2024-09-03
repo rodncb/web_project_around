@@ -19,7 +19,7 @@
   height: 330px;
 }
 
-.popup__close-button {
+.popup__close__button {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -84,7 +84,7 @@
     width: 282px;
     height: 322px;
   }
-  .popup__close-button {
+  .popup__close__button {
     width: 26px;
     height: 26px;
     right: 4px;
