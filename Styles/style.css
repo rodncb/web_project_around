@@ -49,6 +49,9 @@ body {
   display: flex;
   align-items: center;
   margin-left: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__info__edit__button {
@@ -64,6 +67,9 @@ body {
   line-height: 21.78px;
   font-weight: 400;
   margin-left: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .add__button {
@@ -130,6 +136,7 @@ body {
   margin-top: 67px;
   margin-bottom: 60px;
 }
+
 @media (max-width: 1000px) {
   .header__content {
     padding: 32px;
@@ -164,13 +171,12 @@ body {
   }
 
   .profile__info__title {
-    max-width: 192px;
+    max-width: 282px;
     width: 100%;
     font-size: 22px;
     font-weight: 500;
     white-space: nowrap;
     align-items: center;
-    justify-content: center;
     margin-top: 30px;
     margin-bottom: 14px;
     line-height: 26.63px;
@@ -207,5 +213,7 @@ body {
   .footer {
     margin-left: 19px;
     color: rgba(84, 84, 84, 1);
+    margin-bottom: 36px;
+    margin-top: 50px;
   }
 }

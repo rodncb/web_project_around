@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./Styles/style.css" />
+    <link rel="stylesheet" href="./Styles/popup.css" />
 
     <title>Around</title>
   </head>
@@ -135,9 +136,23 @@
           </div>
         </div>
       </div>
+      <div class="popup" id="popup">
+        <div class="popup__container">
+          <button class="popup__close-button" id="closePopup"></button>
+          <h2 class="popup__title">Editar Perfil</h2>
+          <form>
+            <label for="name">Name:</label>
+            <input type="text" id="profileName" class="popup__input" />
+            <label for="about">Bio:</label>
+            <textarea id="profileBio" class="popup__input"></textarea>
+            <button type="submit" class="popup__button">Salvar</button>
+          </form>
+        </div>
+      </div>
       <footer class="footer">
         <p>&copy; 2024 Around The U.S.</p>
       </footer>
     </section>
+    <script src="popup.js"></script>
   </body>
 </html>
