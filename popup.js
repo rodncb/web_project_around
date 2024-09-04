@@ -31,6 +31,10 @@ openPopupButton.addEventListener("click", () => {
 closePopupButton.addEventListener("click", () => {
   // Remove a classe para esconder a pop-up
   popup.classList.remove("popup_opened");
+
+  console.log("Fechando pop-up e exibindo botão de editar");
+  // Reexibir o botão de abrir a pop-up
+  openPopupButton.style.display = "inline-block";
 });
 
 // Fechar a pop-up ao clicar fora do conteúdo da pop-up
@@ -58,7 +62,7 @@ function handleProfileFormSubmit(evt) {
   let profileBioElement = document.querySelector(".profile__info__bio");
 
   // Insira novos valores usando a propriedade textContent
-  profileNameElement.textContent = nameValue;
+  profileNameElement.nodeValue = nameValue;
   profileBioElement.textContent = bioValue;
 
   // Fechar a pop-up após salvar as alterações
