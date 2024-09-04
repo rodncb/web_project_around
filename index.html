@@ -29,20 +29,21 @@
           alt="Imagem do Perfil"
         />
         <div class="profile__info">
-          <h1 class="profile__info__title">
-            Jacques Cousteau
+          <div class="profile__info-group">
+            <h1 class="profile__info-title">Jacques Cousteau</h1>
             <img
               src="./images/Edit Button.png"
-              class="profile__info__edit__button"
+              class="profile__info-edit-button"
               alt="Imagem de um botão de edição"
             />
-          </h1>
-          <p class="profile__info__bio">Explorador</p>
+          </div>
+
+          <p class="profile__info-bio">Explorador</p>
         </div>
-        <button class="add__button">
+        <button class="profile__add-button">
           <img
             src="./images/VectorAddButton.png"
-            class="add__button__add"
+            class="profile__add-button-add"
             alt="Imagem de um botão de adição"
           />
         </button>
@@ -137,8 +138,9 @@
       </div>
       <div class="popup" id="popup">
         <div class="popup__container">
-          <button class="popup__close__button" id="closePopup"></button>
+          <button class="popup__close-button" id="closePopup"></button>
           <h2 class="popup__title">Editar Perfil</h2>
+          m
           <form>
             <label for="name">Name:</label>
             <input type="text" id="profileName" class="popup__input" />

@@ -1,6 +1,6 @@
 // Selecionando elementos
 let popup = document.getElementById("popup");
-let openPopupButton = document.querySelector(".profile__info__edit__button");
+let openPopupButton = document.querySelector(".profile__info-edit-button");
 let closePopupButton = document.getElementById("closePopup");
 
 // Selecionando os campos de texto dentro do pop-up
@@ -8,8 +8,8 @@ let nomeField = document.getElementById("profileName");
 let bioField = document.getElementById("profileBio");
 
 // Selecionando os elementos da página que precisam ser atualizados
-let profileNameElement = document.querySelector(".profile__info__title");
-let profileBioElement = document.querySelector(".profile__info__bio");
+let profileNameElement = document.querySelector(".profile__info-title");
+let profileBioElement = document.querySelector(".profile__info-bio");
 
 // Dados do perfil (substitua por sua fonte de dados)
 let profileData = {
@@ -58,15 +58,20 @@ function handleProfileFormSubmit(evt) {
   let bioValue = bioInput.value;
 
   // Selecione os elementos aos quais os valores dos campos serão inseridos
-  let profileNameElement = document.querySelector(".profile__info__title");
-  let profileBioElement = document.querySelector(".profile__info__bio");
+  let profileNameElement = document.querySelector(".profile__info-title");
+  let profileBioElement = document.querySelector(".profile__info-bio");
 
   // Insira novos valores usando a propriedade textContent
-  profileNameElement.nodeValue = nameValue;
+  profileNameElement.textContent = nameValue;
   profileBioElement.textContent = bioValue;
+
+  profileData.nome = nameValue;
+  profileData.bio = bioValue;
 
   // Fechar a pop-up após salvar as alterações
   popup.classList.remove("popup_opened");
+  // Reexibir o botão de abrir a pop-up
+  openPopupButton.style.display = "inline-block";
 }
 
 // Conecte o handler ao formulário: ele vai observar o evento de submit
