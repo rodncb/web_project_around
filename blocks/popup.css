@@ -27,7 +27,7 @@
   right: -42px;
   cursor: pointer;
   color: rgba(255, 255, 255, 1);
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0);
   background-image: url(../images/Close\ Icon.png);
   background-size: cover;
   border: none;

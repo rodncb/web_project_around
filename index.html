@@ -55,6 +55,13 @@
             alt="Vale de Yosemite"
             class="card__image"
           />
+          <div class="card__erase-container">
+            <img
+              src="./images/Trash.png"
+              alt="trash Icon"
+              class="card__erase"
+            />
+          </div>
           <div class="card__content">
             <span class="card__title">Vale de Yosemite</span>
             <img
@@ -70,6 +77,13 @@
             alt="Lago Louise"
             class="card__image"
           />
+          <div class="card__erase-container">
+            <img
+              src="./images/Trash.png"
+              alt="trash Icon"
+              class="card__erase"
+            />
+          </div>
           <div class="card__content">
             <span class="card__title">Lago Louise</span>
             <img
@@ -85,6 +99,14 @@
             alt="Montanhas Care"
             class="card__image"
           />
+          <div class="card__erase-container">
+            <img
+              src="./images/Trash.png"
+              alt="trash Icon"
+              class="card__erase"
+            />
+          </div>
+
           <div class="card__content">
             <span class="card__title">Montanhas Care...</span>
             <img
@@ -96,6 +118,13 @@
         </div>
         <div class="card">
           <img src="./images/FotoCard4.jpg" alt="Latemar" class="card__image" />
+          <div class="card__erase-container">
+            <img
+              src="./images/Trash.png"
+              alt="trash Icon"
+              class="card__erase"
+            />
+          </div>
           <div class="card__content">
             <span class="card__title">Latemar</span>
             <img
@@ -111,6 +140,13 @@
             alt="Parque Nacional"
             class="card__image"
           />
+          <div class="card__erase-container">
+            <img
+              src="./images/Trash.png"
+              alt="trash Icon"
+              class="card__erase"
+            />
+          </div>
           <div class="card__content">
             <span class="card__title">Parque Nacional...</span>
             <img
@@ -126,6 +162,13 @@
             alt="Lago di Braies"
             class="card__image"
           />
+          <div class="card__erase-container">
+            <img
+              src="./images/Trash.png"
+              alt="trash Icon"
+              class="card__erase"
+            />
+          </div>
           <div class="card__content">
             <span class="card__title">Lago di Braies</span>
             <img
@@ -136,6 +179,26 @@
           </div>
         </div>
       </div>
+      <template id="cardTemplate">
+        <div class="card">
+          <img src="" alt="" class="card__image" />
+          <div class="card__erase-container">
+            <img
+              src="./images/Trash.png"
+              alt="trash Icon"
+              class="card__erase"
+            />
+          </div>
+          <div class="card__content">
+            <span class="card__title"></span>
+            <img
+              src="./images/heart-icon.png"
+              alt="Favorite"
+              class="card__icon"
+            />
+          </div>
+        </div>
+      </template>
       <div class="popup" id="popup">
         <div class="popup__container">
           <button class="popup__close-button" id="closePopup"></button>
@@ -160,8 +223,18 @@
             <input type="text" id="tituloImagem" class="popup__input-form" />
             <label for="about">Link da Imagem:</label>
             <input type="text" id="linkImagem" class="popup__input-form" />
-            <button type="submit" class="popup__button-form">Salvar</button>
+            <button type="submit" class="popup__button-form">Criar</button>
           </form>
+        </div>
+        <div class="popup__image" id="popupImage">
+          <div class="popup__container-image">
+            <button
+              class="popup__close-button-image"
+              id="closeImagePopup"
+            ></button>
+            <img class="popup__image" src="" alt="Imagem ampliada" />
+            <h2 class="popup__caption"></h2>
+          </div>
         </div>
       </div>
       <footer class="footer">

@@ -92,7 +92,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
   },
   {
-    name: "Lago Louise",
+    name: "Lago louise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
   },
   {
@@ -130,4 +130,49 @@ closePopupButtonForm.addEventListener("click", () => {
   popupForm.classList.remove("popup__opened-form");
   // Reexibir o botão de abrir a pop-up
   openPopupButtonForm.style.display = "inline-block";
+});
+
+function newCard(card) {
+  const cardsTemplate = document.getElementById("cardTemplate");
+  const cardElement = cardsTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardLike = cardElement.querySelector(".card__icon");
+  const cardTitle = cardElement.querySelector(".card__title");
+
+  cardImage.src = card.link;
+  cardImage.alt = card.name;
+  cardTitle.textContent = card.name;
+
+  // Muda o ícone de "Curtir" quando clicado
+  cardLike.addEventListener("click", () => {
+    // colocar if/else cardLike.classList.toggle("card__icon-liked");
+  });
+  // Função de exclusão do cartão
+  const cardErase = cardElement.querySelector(".card__erase");
+  cardErase.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  // Abrir pop-up da imagem quando clicada
+  cardImage.addEventListener("click", () => {
+    const imagePopup = document.getElementById("popupImage");
+    const popupImage = imagePopup.querySelector(".popup__image");
+
+    popupImage.src = card.link;
+    popupImage.alt = card.name;
+
+    imagePopup.classList.add("popup__image-opened");
+  });
+
+  return cardElement;
+}
+
+// Fechar pop-up da imagem
+const closeImagePopupButton = document.getElementById("closeImagePopup");
+closeImagePopupButton.addEventListener("click", () => {
+  const imagePopup = document.getElementById("imagePopup");
+  imagePopup.classList.remove("popup__opened");
 });

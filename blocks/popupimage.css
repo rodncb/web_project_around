@@ -1,0 +1,55 @@
+.popup__image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 816px;
+  height: 540px;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000; /* Mantém o popup no topo */
+}
+
+.popup__image-opened {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup__container-image {
+  position: relative;
+  max-width: 100%; /* Tamanho responsivo da imagem */
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.popup__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+.popup__caption {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #fff; /* Texto branco para o título */
+  text-align: center;
+}
+
+.popup__close-button-image {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  background-image: url("/images/Close\ Icon.png"); /* Ícone de fechar personalizado */
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
