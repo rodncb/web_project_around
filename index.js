@@ -1,17 +1,18 @@
-// Selecionando elementos poppup
+// Selecionando elementos do pop-up de edição de perfil
 let popup = document.getElementById("popup");
 let openPopupButton = document.querySelector(".profile__info-edit-button");
 let closePopupButton = document.getElementById("closePopup");
-// selecionando elementos popupform
-let popupForm = document.getElementById("popup__form");
+
+// Selecionando elementos do pop-up de adicionar imagem
+let popupForm = document.getElementById("popupForm");
 let openPopupButtonForm = document.querySelector(".profile__add-button");
 let closePopupButtonForm = document.getElementById("closePopupForm");
 
-// Selecionando os campos de texto dento do pop-up form
+// Selecionando os campos de texto dentro do pop-up de adicionar imagem
 let nomeTitulo = document.getElementById("tituloImagem");
 let linkImagem = document.getElementById("linkImagem");
 
-// Selecionando os campos de texto dentro do pop-up
+// Selecionando os campos de texto dentro do pop-up de edição de perfil
 let nomeField = document.getElementById("profileName");
 let bioField = document.getElementById("profileBio");
 
@@ -25,22 +26,19 @@ let profileData = {
   bio: "Explorador",
 };
 
-// Abrir a pop-up
+// Abrir a pop-up de edição de perfil
 openPopupButton.addEventListener("click", () => {
   // Preencher os campos de texto com os dados do perfil
   nomeField.value = profileData.nome;
   bioField.value = profileData.bio;
 
-  // Adiciona a classe para mostrar a pop-up
+  // Adicionar a classe para mostrar a pop-up
   popup.classList.add("popup__opened");
 });
 
-// Fechar a pop-up ao clicar no botão de fechar
+// Fechar a pop-up de edição de perfil ao clicar no botão de fechar
 closePopupButton.addEventListener("click", () => {
-  // Remove a classe para esconder a pop-up
   popup.classList.remove("popup__opened");
-  // Reexibir o botão de abrir a pop-up
-  openPopupButton.style.display = "inline-block";
 });
 
 // Fechar a pop-up ao clicar fora do conteúdo da pop-up
@@ -50,49 +48,38 @@ popup.addEventListener("click", (event) => {
   }
 });
 
-// Função para lidar com o submit do formulário
+// Função para lidar com o submit do formulário de edição de perfil
 function handleProfileFormSubmit(evt) {
-  // Esta linha impede o navegador de enviar o formulário da forma padrão.
   evt.preventDefault();
 
-  // Vamos encontrar os campos de formulário no DOM
-  let nameInput = document.querySelector("#profileName");
-  let bioInput = document.querySelector("#profileBio");
+  // Pegando os valores dos campos de texto
+  let nameValue = nomeField.value;
+  let bioValue = bioField.value;
 
-  // Pegue os valores de cada campo do valor da propriedade correspondente
-  let nameValue = nameInput.value;
-  let bioValue = bioInput.value;
-
-  // Selecione os elementos aos quais os valores dos campos serão inseridos
-  let profileNameElement = document.querySelector(".profile__info-title");
-  let profileBioElement = document.querySelector(".profile__info-bio");
-
-  // Insira novos valores usando a propriedade textContent
+  // Atualizando o conteúdo do perfil com os novos valores
   profileNameElement.textContent = nameValue;
   profileBioElement.textContent = bioValue;
 
+  // Atualizando o objeto profileData
   profileData.nome = nameValue;
   profileData.bio = bioValue;
 
   // Fechar a pop-up após salvar as alterações
-  popup.classList.remove("popup_opened");
-  // Reexibir o botão de abrir a pop-up
-  openPopupButton.style.display = "inline-block";
+  popup.classList.remove("popup__opened");
 }
 
-// Conecte o handler ao formulário: ele vai observar o evento de submit
+// Conectar o handler ao formulário: ele vai observar o evento de submit
 let formElement = document.querySelector(".popup__container form");
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
-// Cartões de imagens de imagens
-
+// Cards iniciais da galeria de imagens
 const initialCards = [
   {
     name: "Vale de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
   },
   {
-    name: "Lago louise",
+    name: "Lago Louise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
   },
   {
@@ -104,7 +91,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
   },
   {
-    name: "Parque Nacional da Vanoise ",
+    name: "Parque Nacional da Vanoise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
   },
   {
@@ -113,26 +100,9 @@ const initialCards = [
   },
 ];
 
-let formData = {
-  nome: "Título",
-  link: "Link de imagem",
-};
-// Abir pop-up Form
-openPopupButtonForm.addEventListener("click", () => {
-  nomeTitulo.value = formData.nome;
-  linkImagem.value = formData.link;
-  popupForm.classList.add("popup__opened-form");
-});
-
-// Fechar a pop-up ao clicar no botão de fechar
-closePopupButtonForm.addEventListener("click", () => {
-  // Remove a classe para esconder a pop-up
-  popupForm.classList.remove("popup__opened-form");
-  // Reexibir o botão de abrir a pop-up
-  openPopupButtonForm.style.display = "inline-block";
-});
-
+// Função para criar um novo card de imagem
 function newCard(card) {
+  console.log(card);
   const cardsTemplate = document.getElementById("cardTemplate");
   const cardElement = cardsTemplate.content
     .querySelector(".card")
@@ -146,33 +116,111 @@ function newCard(card) {
   cardImage.alt = card.name;
   cardTitle.textContent = card.name;
 
-  // Muda o ícone de "Curtir" quando clicado
+  // Alternar o ícone de curtir
   cardLike.addEventListener("click", () => {
-    // colocar if/else cardLike.classList.toggle("card__icon-liked");
+    // cardLike.classList.toggle("liked");
+
+    // Verifica se a classe "liked" existe após a troca
+    if (cardLike.classList.contains("liked")) {
+      cardLike.classList.remove("liked");
+      cardLike.src = "./images/heart-icon.png";
+    } else {
+      cardLike.classList.add("liked");
+      cardLike.src = "./images/Liked.png";
+    }
   });
-  // Função de exclusão do cartão
+  cardLike.addEventListener("mouseover", () => {
+    cardLike.src = "./images/heartHover.png"; // Substitua pelo caminho da imagem de hover
+  });
+
+  cardLike.addEventListener("mouseout", () => {
+    if (cardLike.classList.contains("liked")) {
+      cardLike.src = "./images/Liked.png";
+    } else {
+      cardLike.src = "./images/heart-icon.png";
+    }
+  });
+
+  // Excluir o cartão
   const cardErase = cardElement.querySelector(".card__erase");
   cardErase.addEventListener("click", () => {
     cardElement.remove();
   });
 
-  // Abrir pop-up da imagem quando clicada
+  // Abrir pop-up da imagem ao clicar na imagem
   cardImage.addEventListener("click", () => {
     const imagePopup = document.getElementById("popupImage");
-    const popupImage = imagePopup.querySelector(".popup__image");
+    const popupImageElement = imagePopup.querySelector(".popup-image-content");
+    const popupCaptionElement = imagePopup.querySelector(".popup__caption");
 
-    popupImage.src = card.link;
-    popupImage.alt = card.name;
+    console.log("Abrindo pop-up com a imagem:", cardImage.link); // Para depuração
 
-    imagePopup.classList.add("popup__image-opened");
+    popupImageElement.src = card.link;
+    popupImageElement.alt = card.name;
+    popupCaptionElement.textContent = card.name;
+
+    imagePopup.classList.add("popup-image-opened");
   });
 
-  return cardElement;
+  const cardsList = document.querySelector(".gallery");
+  cardsList.prepend(cardElement);
 }
 
-// Fechar pop-up da imagem
+// Fechar pop-up de imagem
 const closeImagePopupButton = document.getElementById("closeImagePopup");
 closeImagePopupButton.addEventListener("click", () => {
-  const imagePopup = document.getElementById("imagePopup");
-  imagePopup.classList.remove("popup__opened");
+  const imagePopup = document.getElementById("popupImage");
+  imagePopup.classList.remove("popup-image-opened");
+});
+
+// Fechar pop-up de imagem ao clicar fora dela
+const imagePopup = document.getElementById("popupImage");
+imagePopup.addEventListener("click", (event) => {
+  if (event.target === imagePopup) {
+    imagePopup.classList.remove("popup-image-opened");
+  }
+});
+
+// Popular os cartões iniciais da galeria
+const cardContainer = document.querySelector(".gallery");
+initialCards.forEach((card) => {
+  const cardElement = newCard(card);
+});
+
+// Abrir pop-up de adicionar imagem
+openPopupButtonForm.addEventListener("click", () => {
+  nomeTitulo.value = "Título";
+  linkImagem.value = "Link da Imagem";
+  popupForm.classList.add("popup__opened-form");
+});
+
+// Fechar pop-up de adicionar imagem ao clicar no botão fechar
+closePopupButtonForm.addEventListener("click", () => {
+  // Remover a classe para fechar o pop-up
+  popupForm.classList.remove("popup__opened-form");
+});
+
+// Adicionar um novo card a partir do formulário de adicionar imagem
+popupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // Salvar os valores do pop-up
+  const tituloImagem = nomeTitulo.value;
+  const linkImagemValue = linkImagem.value;
+
+  // Criar um novo card e adicionar à galeria
+  const newCardData = {
+    name: tituloImagem,
+    link: linkImagemValue,
+  };
+  if (!tituloImagem || !linkImagemValue) {
+    console.error("Título ou link da imagem não foram fornecidos.");
+    return;
+  }
+
+  newCard(newCardData); // Apenas chama a função para adicionar o card
+  console.log(newCardData);
+
+  // Fechar o formulário de adicionar imagem
+  popupForm.classList.remove("popup__opened-form");
 });

@@ -42,168 +42,35 @@
         </div>
         <button class="profile__add-button">
           <img
-            src="./images/VectorAddButton.png"
+            src="./images/AddButton.svg"
             class="profile__add-button-add"
             alt="Imagem de um botão de adição"
           />
         </button>
       </div>
       <div class="gallery">
-        <div class="card">
-          <img
-            src="./images/FotoCard1.jpg"
-            alt="Vale de Yosemite"
-            class="card__image"
-          />
-          <div class="card__erase-container">
-            <img
-              src="./images/Trash.png"
-              alt="trash Icon"
-              class="card__erase"
-            />
+        <template id="cardTemplate">
+          <div class="card">
+            <img src="" alt="" class="card__image" />
+            <div class="card__erase-container">
+              <button class="card__erase"></button>
+            </div>
+            <div class="card__content">
+              <span class="card__title"></span>
+              <img
+                src="./images/heart-icon.png"
+                alt="Favorite"
+                class="card__icon"
+              />
+            </div>
           </div>
-          <div class="card__content">
-            <span class="card__title">Vale de Yosemite</span>
-            <img
-              src="./images/heart-icon.png"
-              alt="Favorite"
-              class="card__icon"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="./images/FotoCard2.jpg"
-            alt="Lago Louise"
-            class="card__image"
-          />
-          <div class="card__erase-container">
-            <img
-              src="./images/Trash.png"
-              alt="trash Icon"
-              class="card__erase"
-            />
-          </div>
-          <div class="card__content">
-            <span class="card__title">Lago Louise</span>
-            <img
-              src="./images/heart-icon.png"
-              alt="Favorite"
-              class="card__icon"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="./images/FotoCard3.jpg"
-            alt="Montanhas Care"
-            class="card__image"
-          />
-          <div class="card__erase-container">
-            <img
-              src="./images/Trash.png"
-              alt="trash Icon"
-              class="card__erase"
-            />
-          </div>
-
-          <div class="card__content">
-            <span class="card__title">Montanhas Care...</span>
-            <img
-              src="./images/heart-icon.png"
-              alt="Favorite"
-              class="card__icon"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/FotoCard4.jpg" alt="Latemar" class="card__image" />
-          <div class="card__erase-container">
-            <img
-              src="./images/Trash.png"
-              alt="trash Icon"
-              class="card__erase"
-            />
-          </div>
-          <div class="card__content">
-            <span class="card__title">Latemar</span>
-            <img
-              src="./images/heart-icon.png"
-              alt="Favorite"
-              class="card__icon"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="./images/fotoCard5.jpg"
-            alt="Parque Nacional"
-            class="card__image"
-          />
-          <div class="card__erase-container">
-            <img
-              src="./images/Trash.png"
-              alt="trash Icon"
-              class="card__erase"
-            />
-          </div>
-          <div class="card__content">
-            <span class="card__title">Parque Nacional...</span>
-            <img
-              src="./images/heart-icon.png"
-              alt="Favorite"
-              class="card__icon"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="./images/FotoCard6.jpg"
-            alt="Lago di Braies"
-            class="card__image"
-          />
-          <div class="card__erase-container">
-            <img
-              src="./images/Trash.png"
-              alt="trash Icon"
-              class="card__erase"
-            />
-          </div>
-          <div class="card__content">
-            <span class="card__title">Lago di Braies</span>
-            <img
-              src="./images/heart-icon.png"
-              alt="Favorite"
-              class="card__icon"
-            />
-          </div>
-        </div>
+        </template>
       </div>
-      <template id="cardTemplate">
-        <div class="card">
-          <img src="" alt="" class="card__image" />
-          <div class="card__erase-container">
-            <img
-              src="./images/Trash.png"
-              alt="trash Icon"
-              class="card__erase"
-            />
-          </div>
-          <div class="card__content">
-            <span class="card__title"></span>
-            <img
-              src="./images/heart-icon.png"
-              alt="Favorite"
-              class="card__icon"
-            />
-          </div>
-        </div>
-      </template>
       <div class="popup" id="popup">
         <div class="popup__container">
           <button class="popup__close-button" id="closePopup"></button>
           <h2 class="popup__title">Editar Perfil</h2>
-          m
+
           <form>
             <label for="name">Name:</label>
             <input type="text" id="profileName" class="popup__input" />
@@ -213,28 +80,28 @@
           </form>
         </div>
       </div>
-      <div class="popup__form" id="popup__form">
-        <div class="popup__container-form">
-          <button class="popup__close-button-form" id="closePopupForm"></button>
+      <div class="popup" id="popupForm">
+        <div class="popup__container">
+          <button class="popup__close-button" id="closePopupForm"></button>
           <h3 class="popup__title">Novo Local</h3>
 
           <form>
-            <label for="name">Titulo:</label>
+            <label for="tituloImagem">Titulo:</label>
             <input type="text" id="tituloImagem" class="popup__input-form" />
-            <label for="about">Link da Imagem:</label>
+            <label for="linkImagem">Link da Imagem:</label>
             <input type="text" id="linkImagem" class="popup__input-form" />
-            <button type="submit" class="popup__button-form">Criar</button>
+            <button type="submit" class="popup__button">Criar</button>
           </form>
         </div>
-        <div class="popup__image" id="popupImage">
-          <div class="popup__container-image">
-            <button
-              class="popup__close-button-image"
-              id="closeImagePopup"
-            ></button>
-            <img class="popup__image" src="" alt="Imagem ampliada" />
-            <h2 class="popup__caption"></h2>
-          </div>
+      </div>
+      <div id="popupImage" class="popup-image">
+        <div class="popup__container-image">
+          <button
+            id="closeImagePopup"
+            class="popup__close-button-image"
+          ></button>
+          <img class="popup-image-content" src="" alt="Imagem ampliada" />
+          <h2 class="popup__caption"></h2>
         </div>
       </div>
       <footer class="footer">

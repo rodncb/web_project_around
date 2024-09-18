@@ -32,6 +32,9 @@
   background-size: cover;
   border: none;
 }
+.popup__close-button:hover {
+  background-image: url(../images/Close\ IconHover.png);
+}
 
 .popup__title {
   color: black;
@@ -57,6 +60,20 @@
   font-family: "Inter", sans-serif;
 }
 
+.popup__input-form {
+  width: 358px;
+  height: 27.34px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: rgba(196, 196, 196, 1);
+  margin-top: 28px;
+  margin-left: 36px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  font-family: "Inter", sans-serif;
+}
+
 .popup__button {
   background-color: black;
   color: #fff;
@@ -74,8 +91,14 @@
   line-height: 21.78px;
   text-align: center;
 }
-
+.popup__button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 .popup__opened {
+  display: flex;
+}
+
+.popup__opened-form {
   display: flex;
 }
 

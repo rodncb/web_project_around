@@ -36,6 +36,10 @@
   cursor: pointer;
 }
 
+.profile__info-edit-button:hover {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
 .profile__info-bio {
   font-size: 18px;
   line-height: 21.78px;
@@ -52,6 +56,9 @@
   border: 2px solid rgba(255, 255, 255, 1);
   background-color: black;
   border-radius: 2px;
+}
+.profile__add-button:hover {
+  border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 .profile__add-button-add {
