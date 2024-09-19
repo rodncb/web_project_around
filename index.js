@@ -1,27 +1,27 @@
 // Selecionando elementos do pop-up de edição de perfil
-let popup = document.getElementById("popup");
-let openPopupButton = document.querySelector(".profile__info-edit-button");
-let closePopupButton = document.getElementById("closePopup");
+const popup = document.getElementById("popup");
+const openPopupButton = document.querySelector(".profile__info-edit-button");
+const closePopupButton = document.getElementById("closePopup");
 
 // Selecionando elementos do pop-up de adicionar imagem
-let popupForm = document.getElementById("popupForm");
-let openPopupButtonForm = document.querySelector(".profile__add-button");
-let closePopupButtonForm = document.getElementById("closePopupForm");
+const popupForm = document.getElementById("popupForm");
+const openPopupButtonForm = document.querySelector(".profile__add-button");
+const closePopupButtonForm = document.getElementById("closePopupForm");
 
 // Selecionando os campos de texto dentro do pop-up de adicionar imagem
-let nomeTitulo = document.getElementById("tituloImagem");
-let linkImagem = document.getElementById("linkImagem");
+const nomeTitulo = document.getElementById("tituloImagem");
+const linkImagem = document.getElementById("linkImagem");
 
 // Selecionando os campos de texto dentro do pop-up de edição de perfil
-let nomeField = document.getElementById("profileName");
-let bioField = document.getElementById("profileBio");
+const nomeField = document.getElementById("profileName");
+const bioField = document.getElementById("profileBio");
 
 // Selecionando os elementos da página que precisam ser atualizados
-let profileNameElement = document.querySelector(".profile__info-title");
-let profileBioElement = document.querySelector(".profile__info-bio");
+const profileNameElement = document.querySelector(".profile__info-title");
+const profileBioElement = document.querySelector(".profile__info-bio");
 
 // Dados do perfil
-let profileData = {
+const profileData = {
   nome: "Jacques Cousteau",
   bio: "Explorador",
 };
@@ -53,8 +53,8 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
   // Pegando os valores dos campos de texto
-  let nameValue = nomeField.value;
-  let bioValue = bioField.value;
+  const nameValue = nomeField.value;
+  const bioValue = bioField.value;
 
   // Atualizando o conteúdo do perfil com os novos valores
   profileNameElement.textContent = nameValue;
@@ -69,7 +69,7 @@ function handleProfileFormSubmit(evt) {
 }
 
 // Conectar o handler ao formulário: ele vai observar o evento de submit
-let formElement = document.querySelector(".popup__container form");
+const formElement = document.querySelector(".popup__container form");
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
 // Cards iniciais da galeria de imagens
@@ -102,7 +102,6 @@ const initialCards = [
 
 // Função para criar um novo card de imagem
 function newCard(card) {
-  console.log(card);
   const cardsTemplate = document.getElementById("cardTemplate");
   const cardElement = cardsTemplate.content
     .querySelector(".card")
@@ -152,8 +151,6 @@ function newCard(card) {
     const imagePopup = document.getElementById("popupImage");
     const popupImageElement = imagePopup.querySelector(".popup-image-content");
     const popupCaptionElement = imagePopup.querySelector(".popup__caption");
-
-    console.log("Abrindo pop-up com a imagem:", cardImage.link); // Para depuração
 
     popupImageElement.src = card.link;
     popupImageElement.alt = card.name;
@@ -219,7 +216,6 @@ popupForm.addEventListener("submit", (event) => {
   }
 
   newCard(newCardData); // Apenas chama a função para adicionar o card
-  console.log(newCardData);
 
   // Fechar o formulário de adicionar imagem
   popupForm.classList.remove("popup__opened-form");

@@ -73,9 +73,9 @@
 
           <form>
             <label for="name">Name:</label>
-            <input type="text" id="profileName" class="popup__input" />
+            <input type="text" id="profileName" class="popup__input" required />
             <label for="about">Bio:</label>
-            <input type="text" id="profileBio" class="popup__input" />
+            <input type="text" id="profileBio" class="popup__input" required />
             <button type="submit" class="popup__button">Salvar</button>
           </form>
         </div>
@@ -87,9 +87,19 @@
 
           <form>
             <label for="tituloImagem">Titulo:</label>
-            <input type="text" id="tituloImagem" class="popup__input-form" />
+            <input
+              type="text"
+              id="tituloImagem"
+              class="popup__input-form"
+              required
+            />
             <label for="linkImagem">Link da Imagem:</label>
-            <input type="text" id="linkImagem" class="popup__input-form" />
+            <input
+              type="url"
+              id="linkImagem"
+              class="popup__input-form"
+              required
+            />
             <button type="submit" class="popup__button">Criar</button>
           </form>
         </div>
