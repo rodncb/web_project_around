@@ -15,55 +15,50 @@
   pointer-events: all;
   display: flex;
 }
+/* .popup-image-teste {
+  position: relative;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+} */
 
 .popup__container-image {
   position: relative;
   padding: 20px;
-  height: 100%;
-  width: 100%;
-  max-width: 816px;
-  max-height: 540px;
+  height: auto;
+  width: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .popup-image-content {
-  height: 100%;
+  max-width: 75vw;
+  max-height: 75vh;
   width: 100%;
-  max-width: 816px;
-  max-height: 540px;
+  height: 100%;
   display: block;
   margin: 0 auto;
   object-fit: contain;
 }
-.popup-image-content.landscape {
-  width: 75wh;
-  height: auto;
-}
-
-.popup-image-content.portrait {
-  width: auto;
-  height: 75wh;
-}
 
 .popup__caption {
   position: absolute;
-  width: 291px;
-  height: 12px;
+  max-width: 291px;
+  width: 100%;
   font-size: 12px;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   line-height: 14.52;
   text-align: left;
-  bottom: 75px;
-  left: 70px;
+  top: 550px;
+  left: 20px;
 }
 
 .popup__close-button-image {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: -40px;
-  right: -40px;
+  top: -20px;
+  right: -20px;
   cursor: pointer;
   color: rgba(255, 255, 255, 1);
   background-color: rgba(0, 0, 0, 0);
@@ -74,18 +69,6 @@
 
 .popup__close-button-image:hover {
   background-image: url(../images/Close\ IconHover.png);
-}
-
-@media (max-width: 850px) {
-  .popup__container-image {
-    max-width: 440px;
-    max-height: 499px;
-  }
-
-  .popup-image-content {
-    max-width: 440px;
-    max-height: 499px;
-  }
 }
 
 @media (max-width: 540px) {
