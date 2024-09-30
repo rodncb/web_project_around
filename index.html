@@ -71,12 +71,34 @@
           <button class="popup__close-button" id="closePopup"></button>
           <h2 class="popup__title">Editar Perfil</h2>
 
-          <form>
-            <label for="name">Name:</label>
-            <input type="text" id="profileName" class="popup__input" required />
-            <label for="about">Bio:</label>
-            <input type="text" id="profileBio" class="popup__input" required />
-            <button type="submit" class="popup__button">Salvar</button>
+          <form class="form__popup">
+            <input
+              type="text"
+              id="profileName"
+              class="popup__input form-input"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="popup__input-error" id="profileName-error"
+              >Preencha esse campo.</span
+            >
+
+            <input
+              type="text"
+              id="profileBio"
+              class="popup__input form-input"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="popup__input-error" id="profileBio-error"
+              >Preencha esse campo</span
+            >
+
+            <button type="submit" class="popup__button popup__button_disabled">
+              Salvar
+            </button>
           </form>
         </div>
       </div>
@@ -85,21 +107,22 @@
           <button class="popup__close-button" id="closePopupForm"></button>
           <h3 class="popup__title">Novo Local</h3>
 
-          <form>
-            <label for="tituloImagem">Titulo:</label>
+          <form class="form__popup form__popup-add-card">
             <input
               type="text"
               id="tituloImagem"
-              class="popup__input-form"
+              class="popup__input-form form-input"
               required
             />
-            <label for="linkImagem">Link da Imagem:</label>
+            <span class="popup__input-error" id="tituloImagem-error"></span>
+
             <input
               type="url"
               id="linkImagem"
-              class="popup__input-form"
+              class="popup__input-form form-input"
               required
             />
+            <span class="popup__input-error" id="linkImagem-error"></span>
             <button type="submit" class="popup__button">Criar</button>
           </form>
         </div>
@@ -118,6 +141,7 @@
         <p>&copy; 2024 Around The U.S.</p>
       </footer>
     </section>
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
+    <script src="validate.js" defer></script>
   </body>
 </html>
