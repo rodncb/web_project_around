@@ -1,3 +1,6 @@
+import { Card } from "./card.js";
+import { FormValidator } from "./FormValidator.js";
+
 // Selecionando elementos do pop-up de edição de perfil
 const popup = document.getElementById("popup");
 const openPopupButton = document.querySelector(".profile__info-edit-button");
@@ -71,6 +74,29 @@ function handleProfileFormSubmit(evt) {
 // Conectar o handler ao formulário: ele vai observar o evento de submit
 const formElement = document.querySelector(".popup__container form");
 formElement.addEventListener("submit", handleProfileFormSubmit);
+
+// Configuração de validação
+const validationConfig = {
+  formSelector: ".form__popup",
+  inputSelector: ".form-input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+// Validando os formulários
+const formProfileValidator = new FormValidator(
+  validationConfig,
+  document.querySelector(".form__popup")
+);
+formProfileValidator.enableValidation();
+
+const formCardValidator = new FormValidator(
+  validationConfig,
+  document.querySelector(".form__popup-add-card")
+);
+formCardValidator.enableValidation();
 
 // Cards iniciais da galeria de imagens
 const initialCards = [
