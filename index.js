@@ -1,5 +1,6 @@
 import { Card } from "./card.js";
 import { FormValidator } from "./FormValidator.js";
+import { opemModal } from "./utils.js";
 
 // Selecionando elementos do pop-up de edição de perfil
 const popup = document.getElementById("popup");
