@@ -3,9 +3,31 @@
   align-items: center;
   margin: 40px 0;
 }
+
+.profile__edit {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
 .profile__photo {
   width: 120px;
   height: 120px;
+}
+
+.profile__photo-edit {
+  width: 120px;
+  height: 120px;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  position: absolute;
+  background-color: transparent;
+}
+.profile__photo-edit:hover {
+  background-image: url(/src/images/VectorEditProfile.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .profile__info {
