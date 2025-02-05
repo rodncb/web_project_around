@@ -66,9 +66,10 @@
   cursor: pointer;
 }
 
-/* .card__icon-liked {
-  color: rgba(0, 0, 0, 1);
-} */
+.card__icon-liked {
+  background-image: url(../images/Liked.png);
+  /* border-bottom: black solid; */
+}
 
 @media (max-width: 1000px) {
   .gallery {
