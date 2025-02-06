@@ -1,5 +1,5 @@
 Projeto Around the U.S.
-Este é o projeto "Around the U.S.", uma aplicação web interativa que permite aos usuários criar, visualizar e gerenciar cartões de imagens. O projeto é desenvolvido como parte do bootcamp, focando na refatoração de código e implementação de padrões de Programação Orientada a Objetos (POO) em JavaScript.
+É uma aplicação web interativa que permite aos usuários criar, visualizar e gerenciar cartões de imagens. O projeto é desenvolvido como parte do bootcamp, focando na refatoração de código e implementação de padrões de Programação Orientada a Objetos (POO) em JavaScript.
 
 Visão Geral
 Este projeto utiliza a Programação Orientada a Objetos para organizar o código e garantir que cada funcionalidade seja devidamente encapsulada. Diversas classes foram criadas para lidar com as diferentes partes da interface e funcionalidades, como pop-ups, informações do usuário, e gerenciamento de cartões.
