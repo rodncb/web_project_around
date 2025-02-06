@@ -78,6 +78,7 @@
   border: 2px solid rgba(255, 255, 255, 1);
   background-color: black;
   border-radius: 2px;
+  margin-left: 166px;
 }
 .profile__add-button:hover {
   border: 2px solid rgba(255, 255, 255, 0.6);
@@ -136,5 +137,6 @@
     width: 100%;
     border: 2px solid rgba(255, 255, 255, 1);
     margin-bottom: 36px;
+    margin-left: 0;
   }
 }
