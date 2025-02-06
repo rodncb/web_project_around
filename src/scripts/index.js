@@ -108,11 +108,11 @@ const popupAddCard = new PopupWithForm(
     handleFormSubmit: (data) => {
       // Cria um novo card com os dados do formulário
       const newCard = {
-        name: data.tituloImagem, // Nome do campo input titulo
-        link: data.linkImagem, // Nome do campo input link
+        name: data.nameAdd, // Nome do campo input titulo
+        link: data.linkAdd, // Nome do campo input link
       };
 
-      // Cria e adiciona o novo card
+      console.log(data); // Cria e adiciona o novo card
       const card = new Card(
         {
           title: newCard.name,
