@@ -24,11 +24,7 @@ import { Popup } from "../components/Popup.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { Card } from "./card.js";
-
-const userInfo = new UserInfo({
-  nameSelector: ".profile__info-title",
-  jobSelector: ".profile__info-bio",
-});
+import { Api } from "../utils/api.js";
 
 const formValidator = new FormValidator(
   {
@@ -42,12 +38,42 @@ const formValidator = new FormValidator(
   },
   formElement
 );
+
+const api = new Api({
+  baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
+  headers: {
+    authorization: "c7f63039-8b71-44db-a92f-c8a344c34746",
+    "Content-Type": "application/json",
+  },
+});
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__info-title",
+  jobSelector: ".profile__info-bio",
+});
+
+api
+  .getUserInfo()
+  .then((data) => {
+    userInfo.setUserInfo({
+      name: data.name,
+      job: data.about,
+    });
+  })
+  .catch((err) => console.log(err));
+
 const popupProfile = new PopupWithForm(
   "#popup",
   {
     handleFormSubmit: ({ name, job }) => {
-      userInfo.setUserInfo({ name, job });
-      popupProfile.close();
+      api
+        .updateUserInfo(name, job)
+        .then((updateData) => {
+          userInfo.setUserInfo({ name, job: updateData.about });
+          console.log(name, job);
+          popupProfile.close();
+        })
+        .catch((err) => console.error(err));
     },
   },
   formValidator
@@ -65,88 +91,94 @@ openPopupButton.addEventListener("click", () => {
   popupProfile.open();
 });
 
-const addInitialCards = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      const card = new Card(
-        {
-          title: item.name,
-          link: item.link,
-          handleCardClick: (evt, title, link) => {
-            if (evt.target.classList.contains("card__icon")) {
-              evt.target.classList.toggle("card__icon-liked");
-            }
-            if (evt.target.classList.contains("card__image")) {
-              const imagePopup = new PopupWithImage(
-                {
-                  title,
-                  link,
-                },
-                ".popup-image"
-              );
-              imagePopup.open();
-            }
-          },
+let cardSection;
+
+api
+  .getIncitalCards()
+  .then((cards) => {
+    cardSection = new Section(
+      {
+        items: cards,
+        renderer: (item) => {
+          const card = new Card(
+            {
+              title: item.name,
+              link: item.link,
+              handleDeleteCard: () => {
+                api.deleteCard(item._id);
+              },
+              handleCardClick: (evt, title, link) => {
+                if (evt.target.classList.contains("card__icon")) {
+                  evt.target.classList.toggle("card__icon-liked");
+                }
+                if (evt.target.classList.contains("card__image")) {
+                  const imagePopup = new PopupWithImage(
+                    {
+                      title,
+                      link,
+                    },
+                    ".popup-image"
+                  );
+                  imagePopup.open();
+                }
+              },
+            },
+            "#cardTemplate"
+          );
+          cardSection.addItem(card.generateCard());
         },
-        "#cardTemplate"
-      );
-
-      addInitialCards.addItem(card.generateCard());
-    },
-  },
-  ".gallery"
-);
-
-addInitialCards.renderItems();
+      },
+      ".gallery"
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => console.error(err));
 
 formValidator.enableValidation();
-
-const popupAddCard = new PopupWithForm(
-  "#popupForm", // Seletor do popup de adicionar cards
-  {
-    handleFormSubmit: (data) => {
-      // Cria um novo card com os dados do formulário
-      const newCard = {
-        name: data.nameAdd, // Nome do campo input titulo
-        link: data.linkAdd, // Nome do campo input link
-      };
-
-      console.log(data); // Cria e adiciona o novo card
-      const card = new Card(
-        {
-          title: newCard.name,
-          link: newCard.link,
-          handleCardClick: (evt) => {
-            if (evt.target.classList.contains("card__icon")) {
-              evt.target.classList.toggle("card__icon-liked");
-            }
-            if (evt.target.classList.contains("card__image")) {
-              const imagePopup = new PopupWithImage(
-                {
-                  title: newCard.name,
-                  link: newCard.link,
-                },
-                "#popupImage"
-              );
-              imagePopup.open();
-            }
-          },
-        },
-        "#cardTemplate"
-      );
-      console.log(card);
-
-      addInitialCards.addItem(card.generateCard());
-      popupAddCard.close();
-    },
-  }
-);
-
-popupAddCard.setEventListeners();
 
 openPopupButtonForm.addEventListener("click", () => {
   popupAddCard.open();
 });
+
+const popupAddCard = new PopupWithForm("#popupForm", {
+  handleFormSubmit: (data) => {
+    api
+      .createCard(data.nameAdd, data.linkAdd)
+      .then((newCard) => {
+        const card = new Card(
+          {
+            title: newCard.name,
+            link: newCard.link,
+            handleDeleteCard: () => {
+              api.deleteCard(newCard._id);
+            },
+            handleCardClick: (evt) => {
+              if (evt.target.classList.contains("card__icon")) {
+                evt.target.classList.toggle("card__icon-liked");
+              }
+              if (evt.target.classList.contains("card__image")) {
+                const imagePopup = new PopupWithImage(
+                  {
+                    title: newCard.name,
+                    link: newCard.link,
+                  },
+                  "#popupImage"
+                );
+                imagePopup.open();
+              }
+            },
+          },
+          "#cardTemplate"
+        );
+        console.log(card);
+
+        cardSection.addItem(card.generateCard());
+        popupAddCard.close();
+      })
+      .catch((err) => console.error(err));
+  },
+});
+
+popupAddCard.setEventListeners();
 
 export { formValidator };

@@ -14,18 +14,6 @@
   display: flex;
 }
 
-/* .popup-image-opened {
-  opacity: 1;
-  pointer-events: all;
-  display: flex;
-} */
-/* .popup-image-teste {
-  position: relative;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-} */
-
 .popup__container-image {
   position: relative;
   padding: 20px;
@@ -53,23 +41,9 @@
   color: rgba(255, 255, 255, 1);
   line-height: 14.52;
   text-align: left;
-  top: 600px;
-  left: 40px;
+  top: 540px;
+  left: 20px;
 }
-
-/* .popup__close-button-image {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  top: -20px;
-  right: -20px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(0, 0, 0, 0);
-  background-image: url(../images/Close\ Icon.png);
-  background-size: cover;
-  border: none;
-} */
 
 .popup__close-button-image:hover {
   background-image: url(../images/Close\ IconHover.png);

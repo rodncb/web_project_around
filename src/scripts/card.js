@@ -1,8 +1,12 @@
 export class Card {
-  constructor({ title, link, handleCardClick }, templateSelector) {
+  constructor(
+    { title, link, handleDeleteCard, handleCardClick },
+    templateSelector
+  ) {
     this._title = title;
     this._link = link;
     this._handleCardClick = handleCardClick;
+    this._handleDeleteCard = handleDeleteCard;
     this._template = document
       .querySelector(templateSelector)
       .content.cloneNode(true);
@@ -20,6 +24,7 @@ export class Card {
     this._element
       .querySelector(".card__erase")
       .addEventListener("click", (evt) => {
+        this._handleDeleteCard();
         evt.target.closest(".card").remove();
       });
 
