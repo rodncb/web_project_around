@@ -29,7 +29,6 @@ import { Api } from "../utils/api.js";
 const formValidator = new FormValidator(
   {
     formSelector: ".form__popup",
-    // fieldsetSeletor: ".popup__fieldset",
     inputSelector: ".form-input",
     submitButtonSelector: ".popup__button",
     inactiveButtonClass: "popup__button_disabled",
@@ -100,17 +99,16 @@ api
       {
         items: cards,
         renderer: (item) => {
+          console.log("Card do servidor:", item);
           const card = new Card(
             {
               title: item.name,
               link: item.link,
-              handleDeleteCard: () => {
+              isLiked: item.isLiked,
+              handleDeleteCard: (cardId) => {
                 api.deleteCard(item._id);
               },
               handleCardClick: (evt, title, link) => {
-                if (evt.target.classList.contains("card__icon")) {
-                  evt.target.classList.toggle("card__icon-liked");
-                }
                 if (evt.target.classList.contains("card__image")) {
                   const imagePopup = new PopupWithImage(
                     {
@@ -120,6 +118,26 @@ api
                     ".popup-image"
                   );
                   imagePopup.open();
+                }
+              },
+              handleLikeClick: (card) => {
+                const cardId = item._id;
+                if (card.isLiked()) {
+                  api
+                    .unlikeCard(cardId)
+                    .then((res) => {
+                      console.log("Resposta do unlikeCard (descurtir):", res);
+                      card.setLikeStatus(res.isLiked); //
+                    })
+                    .catch((err) => console.error(err));
+                } else {
+                  api
+                    .likeCard(cardId)
+                    .then((res) => {
+                      console.log("Resposta do likeCard (curtir):", res);
+                      card.setLikeStatus(res.isLiked);
+                    })
+                    .catch((err) => console.error(err));
                 }
               },
             },
@@ -149,29 +167,42 @@ const popupAddCard = new PopupWithForm("#popupForm", {
           {
             title: newCard.name,
             link: newCard.link,
-            handleDeleteCard: () => {
+            isLiked: false,
+            handleDeleteCard: (cardId) => {
               api.deleteCard(newCard._id);
             },
             handleCardClick: (evt) => {
-              if (evt.target.classList.contains("card__icon")) {
-                evt.target.classList.toggle("card__icon-liked");
-              }
               if (evt.target.classList.contains("card__image")) {
                 const imagePopup = new PopupWithImage(
-                  {
-                    title: newCard.name,
-                    link: newCard.link,
-                  },
+                  { title: newCard.name, link: newCard.link },
                   "#popupImage"
                 );
                 imagePopup.open();
               }
             },
+            handleLikeClick: (card) => {
+              const cardId = newCard._id;
+              if (card.isLiked()) {
+                api
+                  .unlikeCard(cardId)
+                  .then((res) => {
+                    console.log("Resposta do unlikeCard (descurtir):", res); //
+                    card.setLikeStatus(res.isLiked);
+                  })
+                  .catch((err) => console.error(err));
+              } else {
+                api
+                  .likeCard(cardId)
+                  .then((res) => {
+                    console.log("Resposta do likeCard (curtir):", res);
+                    card.setLikeStatus(res.isLiked);
+                  })
+                  .catch((err) => console.error(err));
+              }
+            },
           },
           "#cardTemplate"
         );
-        console.log(card);
-
         cardSection.addItem(card.generateCard());
         popupAddCard.close();
       })
