@@ -25,19 +25,29 @@
         />
       </header>
       <div class="profile">
-        <img
-          src="./src/images/Avatar.png"
-          class="profile__photo"
-          alt="Imagem do Perfil"
-        />
+        <div class="profile__photo-container">
+          <img
+            src="./src/images/Avatar.png"
+            class="profile__photo"
+            alt="Imagem do Perfil"
+          />
+          <button class="profile__photo-edit-button">
+            <img
+              src="./src/images/Edit Button.png"
+              alt="Imagem de um botão de edição da foto do perfil"
+            />
+          </button>
+        </div>
+
         <div class="profile__info">
           <div class="profile__info-group">
             <h1 class="profile__info-title">Jacques Cousteau</h1>
-            <img
-              src="./src/images/Edit Button.png"
-              class="profile__info-edit-button"
-              alt="Imagem de um botão de edição"
-            />
+            <button class="profile__info-edit-button">
+              <img
+                src="./src/images/Edit Button.png"
+                alt="Imagem de um botão de edição"
+              />
+            </button>
           </div>
 
           <p class="profile__info-bio">Explorador</p>
@@ -144,6 +154,29 @@
           <h2 class="popup__caption"></h2>
         </div>
       </div>
+      <div class="popup" id="popupAvatar">
+        <div class="popup__container">
+          <button class="popup__close-button" id="closePopupAvatar"></button>
+          <h2 class="popup__title">Alterar a foto do perfil</h2>
+
+          <form class="form__popup form__popup_avatar" name="avatar" novalidate>
+            <input
+              type="url"
+              id="avatarUrl"
+              name="avatar"
+              class="popup__input form-input"
+              placeholder="Link para a nova foto do perfil"
+              required
+            />
+            <span class="popup__input-error" id="avatarUrl-error"></span>
+
+            <button type="submit" class="popup__button popup__button_disabled">
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+
       <footer class="footer">
         <p>&copy; 2024 Around The U.S.</p>
       </footer>

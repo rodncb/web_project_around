@@ -105,7 +105,7 @@ api
               title: item.name,
               link: item.link,
               isLiked: item.isLiked,
-              handleDeleteCard: (cardId) => {
+              handleDeleteCard: () => {
                 api.deleteCard(item._id);
               },
               handleCardClick: (evt, title, link) => {
@@ -168,7 +168,7 @@ const popupAddCard = new PopupWithForm("#popupForm", {
             title: newCard.name,
             link: newCard.link,
             isLiked: false,
-            handleDeleteCard: (cardId) => {
+            handleDeleteCard: () => {
               api.deleteCard(newCard._id);
             },
             handleCardClick: (evt) => {

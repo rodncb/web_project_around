@@ -68,7 +68,6 @@
 
 .card__icon-liked {
   background-image: url(../images/Liked.png);
-  /* border-bottom: black solid; */
 }
 
 @media (max-width: 1000px) {
