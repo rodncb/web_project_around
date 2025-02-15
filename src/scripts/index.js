@@ -67,13 +67,17 @@ const popupProfile = new PopupWithForm(
   "#popup",
   {
     handleFormSubmit: ({ name, job }) => {
+      popupProfile.renderLoading(true);
       api
         .updateUserInfo(name, job)
         .then((updateData) => {
           userInfo.setUserInfo({ name, job: updateData.about });
           popupProfile.close();
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => {
+          popupProfile.renderLoading(false);
+        });
     },
   },
   formValidator
@@ -158,6 +162,7 @@ openPopupButtonForm.addEventListener("click", () => {
 
 const popupAddCard = new PopupWithForm("#popupForm", {
   handleFormSubmit: (data) => {
+    popupAddCard.renderLoading(true);
     api
       .createCard(data.nameAdd, data.linkAdd)
       .then((newCard) => {
@@ -202,7 +207,10 @@ const popupAddCard = new PopupWithForm("#popupForm", {
         cardSection.addItem(card.generateCard());
         popupAddCard.close();
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => {
+        popupAddCard.renderLoading(false);
+      });
   },
 });
 
@@ -210,13 +218,17 @@ popupAddCard.setEventListeners();
 
 const popupAvatar = new PopupWithForm("#popupAvatar", {
   handleFormSubmit: (data) => {
+    popupAvatar.renderLoading(true);
     api
       .updateAvatar(data.avatar)
       .then((res) => {
         userInfo.setUserAvatar(res.avatar);
         popupAvatar.close();
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => {
+        popupAvatar.renderLoading(false);
+      });
   },
   formValidator,
 });
