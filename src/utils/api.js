@@ -47,18 +47,25 @@ export class Api {
   }
 
   likeCard(cardId) {
-    // Novo método likeCard
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
-      method: `PUT`, //  Requisição PUT para curtir
+      method: `PUT`,
     }).then(this._checkResponse);
   }
 
   unlikeCard(cardId) {
-    //  Novo método unlikeCard
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
-      method: `DELETE`, //  Requisição DELETE para descurtir
+      method: `DELETE`,
+    }).then(this._checkResponse);
+  }
+  updateAvatar(avatarUrl) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatarUrl,
+      }),
     }).then(this._checkResponse);
   }
 }

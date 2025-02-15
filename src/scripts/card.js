@@ -47,14 +47,12 @@ export class Card {
   }
 
   setLikeStatus(isLiked) {
-    console.log("setLikeStatus chamado com isLiked:", isLiked);
     this._isLiked = isLiked;
     this._renderLike(); //
   }
 
   _renderLike() {
     if (this._isLiked) {
-      console.log("_renderLike chamado. this._isLiked:", this._isLiked);
       this._likeButton.classList.add("card__icon-liked");
     } else {
       this._likeButton.classList.remove("card__icon-liked");

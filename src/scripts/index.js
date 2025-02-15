@@ -49,6 +49,7 @@ const api = new Api({
 const userInfo = new UserInfo({
   nameSelector: ".profile__info-title",
   jobSelector: ".profile__info-bio",
+  avatarSelector: ".profile__photo",
 });
 
 api
@@ -57,9 +58,10 @@ api
     userInfo.setUserInfo({
       name: data.name,
       job: data.about,
+      avatar: data.avatar,
     });
   })
-  .catch((err) => console.log(err));
+  .catch((err) => console.error(err));
 
 const popupProfile = new PopupWithForm(
   "#popup",
@@ -69,7 +71,6 @@ const popupProfile = new PopupWithForm(
         .updateUserInfo(name, job)
         .then((updateData) => {
           userInfo.setUserInfo({ name, job: updateData.about });
-          console.log(name, job);
           popupProfile.close();
         })
         .catch((err) => console.error(err));
@@ -99,7 +100,6 @@ api
       {
         items: cards,
         renderer: (item) => {
-          console.log("Card do servidor:", item);
           const card = new Card(
             {
               title: item.name,
@@ -126,7 +126,6 @@ api
                   api
                     .unlikeCard(cardId)
                     .then((res) => {
-                      console.log("Resposta do unlikeCard (descurtir):", res);
                       card.setLikeStatus(res.isLiked); //
                     })
                     .catch((err) => console.error(err));
@@ -134,7 +133,6 @@ api
                   api
                     .likeCard(cardId)
                     .then((res) => {
-                      console.log("Resposta do likeCard (curtir):", res);
                       card.setLikeStatus(res.isLiked);
                     })
                     .catch((err) => console.error(err));
@@ -186,7 +184,6 @@ const popupAddCard = new PopupWithForm("#popupForm", {
                 api
                   .unlikeCard(cardId)
                   .then((res) => {
-                    console.log("Resposta do unlikeCard (descurtir):", res); //
                     card.setLikeStatus(res.isLiked);
                   })
                   .catch((err) => console.error(err));
@@ -194,7 +191,6 @@ const popupAddCard = new PopupWithForm("#popupForm", {
                 api
                   .likeCard(cardId)
                   .then((res) => {
-                    console.log("Resposta do likeCard (curtir):", res);
                     card.setLikeStatus(res.isLiked);
                   })
                   .catch((err) => console.error(err));
@@ -211,5 +207,28 @@ const popupAddCard = new PopupWithForm("#popupForm", {
 });
 
 popupAddCard.setEventListeners();
+
+const popupAvatar = new PopupWithForm("#popupAvatar", {
+  handleFormSubmit: (data) => {
+    api
+      .updateAvatar(data.avatar)
+      .then((res) => {
+        userInfo.setUserAvatar(res.avatar);
+        popupAvatar.close();
+      })
+      .catch((err) => console.error(err));
+  },
+  formValidator,
+});
+
+popupAvatar.setEventListeners();
+
+const openPopupButtonAvatar = document.querySelector(
+  ".profile__photo-edit-button"
+); // ✅ Selecione o botão de edição do avatar
+
+openPopupButtonAvatar.addEventListener("click", () => {
+  popupAvatar.open(); // ✅ Abra o popup de avatar
+});
 
 export { formValidator };
