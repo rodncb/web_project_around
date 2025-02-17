@@ -100,9 +100,10 @@ let cardSection;
 api
   .getIncitalCards()
   .then((cards) => {
+    const reversedCards = cards.reverse();
     cardSection = new Section(
       {
-        items: cards,
+        items: reversedCards,
         renderer: (item) => {
           const card = new Card(
             {
