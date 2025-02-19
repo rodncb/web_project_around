@@ -1,0 +1,128 @@
+.popup__form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__container-form {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 430px;
+  height: 330px;
+}
+
+.popup__close-button-form {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -42px;
+  right: -42px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(../images/Close\ Icon.png);
+  background-size: cover;
+  border: none;
+}
+
+.popup__title-form {
+  color: black;
+  width: 330px;
+  margin-top: 34px;
+  margin-left: 36px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+}
+
+.popup__input-form {
+  color: rgba(196, 196, 196, 1);
+  width: 358px;
+  height: 27.34px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-top: 28px;
+  margin-left: 36px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  font-family: "Inter", sans-serif;
+}
+
+.popup__button-form {
+  background-color: black;
+  color: #fff;
+  width: 358px;
+  height: 50.15px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  margin-top: 48px;
+  margin-left: 36px;
+  margin-bottom: 36.51px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: center;
+}
+
+.popup__opened-form {
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .popup__container-form {
+    width: 282px;
+    height: 322px;
+  }
+  .popup__close-button-form {
+    width: 26px;
+    height: 26px;
+    right: 4px;
+  }
+  .popup__title-form {
+    width: 238px;
+    height: 26px;
+    font-size: 18px;
+    line-height: 21.78px;
+    margin-left: 22px;
+    /*margin-bottom: 76px;*/
+  }
+  .popup__input-form {
+    width: 238px;
+    height: 17px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: black;
+    margin-left: 22px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+  }
+  .popup__button- {
+    background-color: black;
+    color: #fff;
+    width: 238px;
+    height: 46px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    margin-top: 46px;
+    margin-left: 22px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: center;
+  }
+}

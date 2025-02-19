@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./vendor/normalize.css" />
+
+    <title>Around</title>
+  </head>
+  <body>
+    <section class="container">
+      <header class="header__content">
+        <img
+          src="./images/VectorHeader.png"
+          class="header__logo"
+          alt="Logo vetorizado da palavra Around"
+        />
+      </header>
+      <div class="profile">
+        <div class="profile__photo-container">
+          <img
+            src="./images/Avatar.png"
+            class="profile__photo"
+            alt="Imagem do Perfil"
+          />
+          <button class="profile__photo-edit-button">
+            <img
+              src="./images/editProfile.png"
+              alt="Imagem de um botão de edição da foto do perfil"
+            />
+          </button>
+        </div>
+
+        <div class="profile__info">
+          <div class="profile__info-group">
+            <h1 class="profile__info-title">Jacques Cousteauls</h1>
+            <button class="profile__info-edit-button">
+              <img
+                src="./images/Edit Button.png"
+                alt="Imagem de um botão de edição"
+              />
+            </button>
+          </div>
+
+          <p class="profile__info-bio">Explorador</p>
+        </div>
+        <button class="profile__add-button">
+          <img
+            src="./images/AddButton.svg"
+            class="profile__add-button-add"
+            alt="Imagem de um botão de adição"
+          />
+        </button>
+      </div>
+      <div class="gallery">
+        <template id="cardTemplate">
+          <div class="card">
+            <img src="" alt="" class="card__image" />
+            <div class="card__erase-container">
+              <button class="card__erase">
+                <img src="./images/Trash.png" />
+              </button>
+            </div>
+            <div class="card__content">
+              <span class="card__title"></span>
+              <img
+                src="./images/heart-icon.png"
+                alt="Favorite"
+                class="card__icon"
+              />
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="popup" id="popup">
+        <div class="popup__container">
+          <button class="popup__close-button" id="closePopup"></button>
+          <h2 class="popup__title">Editar Perfil</h2>
+
+          <form class="form__popup" name="profile" novalidate>
+            <!-- <fieldset class="popup__fieldset"> -->
+            <input
+              type="text"
+              id="profileName"
+              name="name"
+              class="popup__input form-input"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="popup__input-error" id="profileName-error"
+              >Preencha esse campo.</span
+            >
+
+            <input
+              type="text"
+              id="profileBio"
+              name="job"
+              class="popup__input form-input"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="popup__input-error" id="profileBio-error"
+              >Preencha esse campo</span
+            >
+
+            <button type="submit" class="popup__button popup__button_disabled">
+              Salvar
+            </button>
+            <!-- </fieldset> -->
+          </form>
+        </div>
+      </div>
+      <div class="popup" id="popupForm">
+        <div class="popup__container">
+          <button class="popup__close-button" id="closePopupForm"></button>
+          <h3 class="popup__title">Novo Local</h3>
+
+          <form class="form__popup form__popup-add-card">
+            <input
+              type="text"
+              id="tituloImagem"
+              name="nameAdd"
+              class="popup__input-form form-input popup__input"
+              required
+            />
+            <span class="popup__input-error" id="tituloImagem-error"></span>
+
+            <input
+              type="url"
+              id="linkImagem"
+              name="linkAdd"
+              class="popup__input-form form-input popup__input"
+              required
+            />
+            <span class="popup__input-error" id="linkImagem-error"></span>
+            <button type="submit" class="popup__button">Criar</button>
+          </form>
+        </div>
+      </div>
+      <div id="popupImage" class="popup-image">
+        <div class="popup__container-image">
+          <button id="closeImagePopup" class="popup__close-button"></button>
+          <img class="popup-image-content" src="" alt="Imagem ampliada" />
+          <h2 class="popup__caption"></h2>
+        </div>
+      </div>
+      <div class="popup" id="popupAvatar">
+        <div class="popup__container">
+          <button class="popup__close-button" id="closePopupAvatar"></button>
+          <h2 class="popup__title">Alterar a foto do perfil</h2>
+
+          <form class="form__popup form__popup_avatar" name="avatar" novalidate>
+            <input
+              type="url"
+              id="avatarUrl"
+              name="avatar"
+              class="popup__input form-input"
+              placeholder="Link para a nova foto do perfil"
+              required
+            />
+            <span class="popup__input-error" id="avatarUrl-error"></span>
+
+            <button type="submit" class="popup__button popup__button_disabled">
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Around The U.S.</p>
+      </footer>
+    </section>
+    <!-- <script type="module" src="./src/scripts/index.js" defer></script> -->
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
+</html>

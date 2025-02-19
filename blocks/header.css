@@ -1,0 +1,25 @@
+.header__content {
+  border-bottom: 1px solid rgba(84, 84, 84, 1);
+}
+
+.header__logo {
+  width: 173px;
+  margin-bottom: 40px;
+  margin-top: 45px;
+}
+@media (max-width: 1000px) {
+  .header__content {
+    padding: 32px;
+    border: none;
+  }
+  .header__logo {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+@media (max-width: 800px) {
+  .header__content {
+    border-bottom: 1px solid rgba(84, 84, 84, 1);
+    margin-bottom: 42px;
+  }
+}
